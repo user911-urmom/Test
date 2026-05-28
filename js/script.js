@@ -1,5 +1,5 @@
 // ============================================
-// POWER CLEANING - JAVASCRIPT
+// DE POWER CLEANING - JAVASCRIPT
 // ============================================
 
 // === MOBILE MENU TOGGLE ===
@@ -9,12 +9,9 @@ const navMenu = document.querySelector('.nav-menu');
 if (hamburger) {
     hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-        
-        // Animate hamburger to X
         hamburger.classList.toggle('active');
     });
 
-    // Close menu when clicking nav link
     document.querySelectorAll('.nav-menu a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -37,35 +34,45 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// === CONTACT FORM VALIDATION ===
-const contactForm = document.querySelector('#contact-form');
+// === OFFERTE FORM ===
+const offerteForm = document.querySelector('#offerte-form');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+if (offerteForm) {
+    offerteForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form values
         const name = document.querySelector('#name').value.trim();
         const email = document.querySelector('#email').value.trim();
         const phone = document.querySelector('#phone').value.trim();
+        const service = document.querySelector('#service').value.trim();
         const message = document.querySelector('#message').value.trim();
         
-        // Validation
-        if (!name || !email || !phone || !message) {
-            alert('Gelieve alle velden in te vullen.');
+        if (!name || !email || !phone || !service) {
+            alert('Gelieve alle verplichte velden in te vullen.');
             return;
         }
         
-        // Email validation
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(email)) {
             alert('Gelieve een geldig e-mailadres in te vullen.');
             return;
         }
         
-        // Success message
-        alert('Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.');
-        contactForm.reset();
+        // WhatsApp message
+        const whatsappMessage = `Hallo, ik wil graag een offerte aanvragen.
+        
+Naam: ${name}
+Email: ${email}
+Telefoon: ${phone}
+Dienst: ${service}
+Bericht: ${message}`;
+
+        const whatsappURL = `https://wa.me/32484837438?text=${encodeURIComponent(whatsappMessage)}`;
+        
+        window.open(whatsappURL, '_blank');
+        
+        alert('Bedankt! U wordt doorgestuurd naar WhatsApp.');
+        offerteForm.reset();
     });
 }
 
@@ -84,8 +91,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all service cards
-document.querySelectorAll('.service-card, .feature').forEach(el => {
+document.querySelectorAll('.service-card, .feature, .spec-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
