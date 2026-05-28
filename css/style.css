@@ -1,8 +1,7 @@
 /* ============================================
-   POWER CLEANING - STYLESHEET
+   DE POWER CLEANING - STYLESHEET
    ============================================ */
 
-/* === RESET & VARIABLES === */
 * {
     margin: 0;
     padding: 0;
@@ -93,6 +92,13 @@ header {
 
 .btn-nav:hover {
     background: #5a9625;
+}
+
+.btn-nav-green {
+    background: var(--primary-green);
+    color: var(--white) !important;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
 }
 
 .hamburger {
@@ -294,10 +300,61 @@ header {
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
+/* === SPECIALIZED SERVICES === */
+.specialized-services {
+    padding: 5rem 0;
+    background: var(--light-gray);
+}
+
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.spec-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.spec-card:hover {
+    transform: translateY(-10px);
+}
+
+.spec-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.spec-card h3 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.spec-card p {
+    color: var(--dark-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.spec-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.spec-card li {
+    padding: 0.5rem 0;
+    color: var(--dark-gray);
+}
+
 /* === WHY US === */
 .why-us {
     padding: 5rem 0;
-    background: var(--light-gray);
 }
 
 .features-grid {
@@ -323,6 +380,128 @@ header {
     color: var(--primary-blue);
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
+}
+
+/* === CONTACT SECTION === */
+.contact-section {
+    padding: 5rem 0;
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.contact-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.contact-icon {
+    font-size: 2rem;
+}
+
+.contact-detail h4 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-green);
+}
+
+.contact-detail p {
+    margin: 0.3rem 0;
+}
+
+.contact-detail a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.contact-detail a:hover {
+    color: var(--primary-green);
+}
+
+.contact-cta {
+    text-align: center;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    background: #25D366;
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background: #1da851;
+}
+
+/* === OFFERTE FORM === */
+.offerte-section {
+    padding: 5rem 0;
+    background: var(--light-gray);
+}
+
+.offerte-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 5px rgba(107,180,46,0.3);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-green);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #5a9625;
 }
 
 /* === CTA SECTION === */
@@ -446,4 +625,8 @@ footer {
     .cta-section h2 {
         font-size: 2rem;
     }
-  }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
