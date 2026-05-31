@@ -2,599 +2,92 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Amezia | Premium Luxury Fashion</title>
-    <!-- Elegante Serif font voor koppen en Sans-Serif voor strakke tekst -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* CSS Reset & Variabelen */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
-        
-        html, body {
-            width: 100%;
-            overflow-x: hidden; /* Voorkomt het scrollen naar rechts op mobiel */
-        }
-
-        :root {
-            --bg-caramel-light: #f4e6d0; /* Warme lichte caramel basistint */
-            --bg-caramel-solid: #e5cca4; /* Iets diepere caramel voor kaarten/accenten */
-            --text-dark: #231214;
-            --brand-dark: #3a1c20;
-            --white: #ffffff;
-            --font-serif: 'Playfair Display', Georgia, serif;
-            --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
-        }
-
-        body { 
-            font-family: var(--font-sans); 
-            background-color: var(--bg-caramel-light); 
-            color: var(--text-dark); 
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Utility classes */
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-
-        /* Header / Navigatie */
-        header {
-            width: 100%;
-            background-color: var(--bg-caramel-light);
-            border-bottom: 1px solid rgba(58, 28, 32, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-        .menu-toggle span {
-            width: 22px;
-            height: 2px;
-            background-color: var(--text-dark);
-        }
-
-        .logo {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            font-weight: 400;
-            font-style: italic;
-            color: var(--brand-dark);
-            letter-spacing: 1px;
-            text-align: center;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .nav-right span { cursor: pointer; }
-
-        /* Hero Banner */
-        .hero {
-            position: relative;
-            background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
-            height: 60vh;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            padding: 0 10%;
-            width: 100%;
-        }
-
-        .hero-content {
-            max-width: 500px;
-            color: var(--white);
-        }
-
-        .hero-content h1 {
-            font-family: var(--font-serif);
-            font-size: 3rem;
-            font-weight: 400;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .btn-shop {
-            display: inline-block;
-            background-color: var(--white);
-            color: var(--brand-dark);
-            padding: 12px 35px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-        }
-        
-        .btn-shop:hover {
-            transform: scale(1.03);
-            background-color: var(--bg-caramel-light);
-        }
-
-        /* Welcome Gift Promo Text */
-        .promo-banner {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: var(--bg-caramel-light);
-            width: 100%;
-        }
-        .promo-banner h2 {
-            font-family: var(--font-serif);
-            font-size: 2.2rem;
-            font-weight: 400;
-            color: var(--brand-dark);
-            margin-bottom: 5px;
-        }
-        .promo-banner p {
-            font-size: 0.95rem;
-            color: rgba(35, 18, 20, 0.8);
-        }
-
-        /* Producten Sectie */
-        .main-section {
-            padding: 20px 20px 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 40px;
-            color: var(--brand-dark);
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            width: 100%;
-        }
-
-        .product-card {
-            position: relative;
-            background-color: var(--bg-caramel-solid); /* Warme caramel ondergrond voor kaarten */
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .product-image-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 135%; 
-            background-color: rgba(0,0,0,0.05);
-            overflow: hidden;
-        }
-
-        .product-image-wrapper img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .wishlist-icon {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 255, 255, 0.7);
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            cursor: pointer;
-            color: #1c1c1c;
-            z-index: 10;
-        }
-
-        .product-info {
-            padding: 15px 10px;
-            text-align: center;
-        }
-
-        .color-dots {
-            display: flex;
-            justify-content: center;
-            gap: 6px;
-            margin-bottom: 10px;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            display: inline-block;
-            border: 1px solid rgba(0,0,0,0.15);
-        }
-
-        .product-name {
-            font-family: var(--font-serif);
-            font-size: 1rem;
-            color: var(--text-dark);
-            margin-bottom: 5px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .product-price {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--brand-dark);
-        }
-
-        /* Donkere Aanmeldsectie (Newsletter) - Fix voor 100% breedte */
-        .newsletter-dark {
-            background-color: var(--brand-dark);
-            color: var(--white);
-            padding: 60px 20px;
-            text-align: center;
-            width: 100%;
-            position: relative;
-            clear: both;
-        }
-
-        .newsletter-dark h2 {
-            font-family: var(--font-serif);
-            font-size: 2.2rem;
-            font-weight: 400;
-            margin-bottom: 8px;
-        }
-
-        .newsletter-dark p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 25px;
-        }
-
-        .form-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 100%;
-            width: 340px; /* Perfect voor smalle schermen */
-            margin: 0 auto;
-            gap: 12px;
-        }
-
-        .newsletter-dark input[type="email"] {
-            width: 100%;
-            padding: 14px 25px;
-            border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.2);
-            background-color: rgba(255,255,255,0.95);
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            outline: none;
-            text-align: center;
-        }
-
-        .btn-subscribe {
-            width: 100%;
-            padding: 14px 25px;
-            border-radius: 50px;
-            border: none;
-            background-color: var(--bg-caramel-light);
-            color: var(--brand-dark);
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .privacy-label {
-            margin-top: 15px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 0.8rem;
-            opacity: 0.7;
-            cursor: pointer;
-            width: 100%;
-        }
-        .privacy-label a { text-decoration: underline; }
-
-        /* Footer Links - Fix voor 100% breedte */
-        footer {
-            background-color: var(--brand-dark);
-            color: var(--white);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 50px 20px 30px;
-            width: 100%;
-            position: relative;
-            clear: both;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .footer-col h4 {
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-            color: var(--bg-caramel-solid);
-        }
-
-        .footer-col p, .footer-col ul li {
-            font-size: 0.85rem;
-            opacity: 0.7;
-            margin-bottom: 10px;
-        }
-        .footer-col ul li a:hover { opacity: 1; text-decoration: underline; }
-
-        /* Betaalmethodes & Socials Balk */
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            width: 100%;
-        }
-
-        .payment-icons {
-            display: flex;
-            gap: 12px;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            opacity: 0.8;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            font-size: 1.1rem;
-            opacity: 0.8;
-        }
-
-        /* RESPONSIVE DESIGN CODES (Voor iPhone, Samsung & Tablets) */
-        @media (max-width: 992px) {
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                text-align: center;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 576px) {
-            nav { padding: 12px 15px; }
-            .logo { font-size: 1.7rem; }
-            .hero { height: 45vh; min-height: 320px; padding: 0 20px; text-align: center; justify-content: center; }
-            .hero-content h1 { font-size: 2.2rem; }
-            .promo-banner { padding: 30px 15px; }
-            .promo-banner h2 { font-size: 1.7rem; }
-            .section-title { font-size: 1.6rem; margin-bottom: 25px; }
-            
-            /* Gsm grid fix zodat kaarten exact binnen het scherm vallen */
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 12px;
-                padding: 0 5px;
-            }
-            .product-info { padding: 10px 5px; }
-            .product-name { font-size: 0.85rem; }
-            .product-price { font-size: 0.85rem; }
-            
-            .newsletter-dark { padding: 50px 15px; }
-            .newsletter-dark h2 { font-size: 1.7rem; }
-            .form-container { width: 100%; max-width: 290px; }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gogetti Menu</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navigatiebalk -->
-    <header>
-        <nav>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="logo">Amezia</div>
-            <div class="nav-right">
+    <!-- Header met Navigatiebalk -->
+    <header class="site-header">
+        <button class="menu-toggle" id="menuOpenBtn" aria-label="Open menu">☰</button>
+        <div class="logo">Gogetti</div>
+        <div class="header-icons">
+            <span class="icon-search">🔍</span>
+            <span class="icon-cart">🛒 <small>(0)</small></span>
+        </div>
+    </header>
+
+    <!-- Het Volledige Mobiele Menu Overlap -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="menu-header">
+            <button class="menu-close" id="menuCloseBtn">&times;</button>
+            <div class="logo">Gogetti</div>
+            <div class="header-icons">
                 <span>🔍</span>
                 <span>🛒 (0)</span>
             </div>
-        </nav>
-    </header>
-
-    <!-- Sfeer Banner / Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Discover the<br>latest arrivals</h1>
-            <a href="#shop" class="btn-shop">Shop now</a>
         </div>
-    </section>
 
-    <!-- Promo Welkomsttekst -->
-    <section class="promo-banner">
-        <h2>10% Welcome Gift</h2>
-        <p>Subscribe and enjoy 10% off your first purchase.</p>
-    </section>
+        <div class="menu-content">
+            <!-- Hoofdmenu Items -->
+            <ul class="menu-list" id="mainMenuList">
+                <li><a href="#new-arrivals" class="menu-link">New Arrivals</a></li>
+                <li><button class="menu-link has-arrow" data-target="submenu-menswear">Menswear</button></li>
+                <li><button class="menu-link has-arrow" data-target="submenu-footwear">Footwear</button></li>
+                <li><button class="menu-link has-arrow" data-target="submenu-accessories">Accessories</button></li>
+                <li><button class="menu-link has-arrow" data-target="submenu-about">About</button></li>
+            </ul>
 
-    <!-- Producten Overzicht -->
-    <main class="main-section" id="shop">
-        <h3 class="section-title">Latest Arrivals</h3>
-        
-        <div class="products-grid">
-            
-            <!-- Product 1 -->
-            <div class="product-card">
-                <button class="wishlist-icon">♡</button>
-                <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=500&auto=format&fit=crop" alt="Shirt">
-                </div>
-                <div class="product-info">
-                    <div class="color-dots">
-                        <span class="dot" style="background-color: #a4c2db;"></span>
-                        <span class="dot" style="background-color: #d7cdbe;"></span>
-                    </div>
-                    <div class="product-name">Crewneck Short Sleeve Shirt "Pure Mint"</div>
-                    <div class="product-price">€225,00</div>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <button class="wishlist-icon">♡</button>
-                <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=500&auto=format&fit=crop" alt="Shirt Green">
-                </div>
-                <div class="product-info">
-                    <div class="color-dots">
-                        <span class="dot" style="background-color: #9cbca4;"></span>
-                    </div>
-                    <div class="product-name">Light Green Linen Shirt</div>
-                    <div class="product-price">€225,00</div>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <button class="wishlist-icon">♡</button>
-                <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=500&auto=format&fit=crop" alt="Trousers">
-                </div>
-                <div class="product-info">
-                    <div class="color-dots">
-                        <span class="dot" style="background-color: #3e2723;"></span>
-                        <span class="dot" style="background-color: #f5f5f0;"></span>
-                    </div>
-                    <div class="product-name">White Lightweight Linen Trousers</div>
-                    <div class="product-price">€279,00</div>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <button class="wishlist-icon">♡</button>
-                <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=500&auto=format&fit=crop" alt="Jeans">
-                </div>
-                <div class="product-info">
-                    <div class="color-dots">
-                        <span class="dot" style="background-color: #2b4b7c;"></span>
-                    </div>
-                    <div class="product-name">Dark Blue Jeans</div>
-                    <div class="product-price">€189,00</div>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
-    <!-- Luxe Donkere Nieuwsbrief -->
-    <section class="newsletter-dark">
-        <h2>Enjoy 10% off your first order</h2>
-        <p>New collections, early access and exclusive offers.</p>
-        
-        <div class="form-container">
-            <input type="email" placeholder="Email">
-            <button class="btn-subscribe">Subscribe</button>
-        </div>
-        
-        <label class="privacy-label">
-            <input type="checkbox"> I accept the <a href="#">privacy policy</a>
-        </label>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Get in Touch</h4>
-                <p>Customer Services</p>
-                <p>+31 (0)20 123 4567</p>
-            </div>
-            <div class="footer-col">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#">Customer Service</a></li>
-                    <li><a href="#">Shipping & delivery</a></li>
-                    <li><a href="#">Returns</a></li>
+            <!-- Submenu: Menswear (Zomer Filter) -->
+            <div class="submenu-panel" id="submenu-menswear">
+                <button class="back-btn">&larr; Menswear</button>
+                <ul class="submenu-list">
+                    <li><a href="#linen">linen</a></li>
+                    <li><a href="#t-shirts-polos">T-Shirts & Polos</a></li>
+                    <li><a href="#trousers">Trousers</a></li>
+                    <li><a href="#swimwear">Swimwear</a></li>
+                    <li><a href="#lounge-collection">Lounge Collection</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>About Amezia</h4>
-                <ul>
-                    <li><a href="#">The World of Amezia</a></li>
-                    <li><a href="#">Flagship Store</a></li>
-                    <li><a href="#">Campaigns</a></li>
+
+            <!-- Submenu: Footwear -->
+            <div class="submenu-panel" id="submenu-footwear">
+                <button class="back-btn">&larr; Footwear</button>
+                <ul class="submenu-list">
+                    <li><a href="#soft-tide-loaders">Soft tide loafers</a></li>
+                    <li><a href="#velour-slip-on">Velour Slip-on</a></li>
+                </ul>
+            </div>
+
+            <!-- Submenu: Accessories -->
+            <div class="submenu-panel" id="submenu-accessories">
+                <button class="back-btn">&larr; Accessories</button>
+                <ul class="submenu-list">
+                    <li><a href="#headwear">Headwear</a></li>
+                    <li><a href="#leather-accessories">Leather Accessories</a></li>
+                </ul>
+            </div>
+
+            <!-- Submenu: About -->
+            <div class="submenu-panel" id="submenu-about">
+                <button class="back-btn">&larr; About</button>
+                <ul class="submenu-list">
+                    <li><a href="#world-of-gogetti">The World of Gogetti</a></li>
+                    <li><a href="#flagship-store">Flagship Store</a></li>
+                    <li><a href="#artists">Artists</a></li>
                 </ul>
             </div>
         </div>
 
-        <!-- Betaalmethoden Balk onderaan -->
-        <div class="footer-bottom">
-            <div class="payment-icons">
-                <span>AMEX</span> | <span>Apple Pay</span> | <span>Shop Pay</span> | <span>Klarna</span> | <span>PayPal</span> | <span>VISA</span>
-            </div>
-            <div class="social-icons">
-                <span>📸</span>
-                <span>🎵</span>
-            </div>
+        <!-- Kleine 10% kortingsbalk onderaan het menu -->
+        <div class="menu-promo-badge" id="promoBadge">
+            <span>First time? Here's 10% off</span>
+            <button id="closePromoBtn">&times;</button>
         </div>
-    </footer>
+    </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
 
