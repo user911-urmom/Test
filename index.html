@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Amezia | Premium Luxury Fashion</title>
+    <title>Amezia | Summer Luxury Boutique</title>
     
+    <!-- Premium Fonts voor die high-end uitstraling -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS RESET & BASIS INSTELLINGEN */
+        /* BASE RESET */
         * { 
             margin: 0; 
             padding: 0; 
@@ -19,14 +20,15 @@
         
         html, body {
             width: 100%;
-            overflow-x: hidden; /* Voorkomt irritant scrollen naar rechts op iPhone/Samsung */
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         :root {
-            --bg-caramel-light: #f4e6d0; /* Luxe lichte caramel tint */
-            --bg-caramel-solid: #e5cca4; /* Iets diepere caramel voor productkaarten */
+            --bg-caramel-light: #f4e6d0; /* Jouw luxe lichte caramel tint */
+            --bg-caramel-solid: #e5cca4; /* Diepere caramel voor kaarten */
             --text-dark: #231214;
-            --brand-dark: #3a1c20; /* Diep donkerrood/bruin voor de footer */
+            --brand-dark: #3a1c20; /* Diep bordeaux/bruin */
             --white: #ffffff;
             --font-serif: 'Playfair Display', Georgia, serif;
             --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -37,17 +39,16 @@
             background-color: var(--bg-caramel-light); 
             color: var(--text-dark); 
             line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
         }
 
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* HEADER & NAVIGATIEBALK */
+        /* FIXED HEADER */
         header {
             width: 100%;
             background-color: var(--bg-caramel-light);
-            border-bottom: 1px solid rgba(58, 28, 32, 0.1);
+            border-bottom: 1px solid rgba(58, 28, 32, 0.08);
             position: sticky;
             top: 0;
             z-index: 999;
@@ -56,7 +57,7 @@
         nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 15px 20px;
+            padding: 18px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -67,38 +68,44 @@
             border: none;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 6px;
             cursor: pointer;
             padding: 5px;
         }
         .menu-toggle span {
-            width: 22px;
+            width: 24px;
             height: 2px;
             background-color: var(--text-dark);
         }
 
         .logo {
             font-family: var(--font-serif);
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 400;
             font-style: italic;
             color: var(--brand-dark);
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
-        .nav-right {
+        /* EXCLUSIEVE VIP BUTTON (Vervangt saaie winkelwagen) */
+        .nav-order-btn {
+            background-color: var(--brand-dark);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             display: flex;
             align-items: center;
-            gap: 15px;
-            font-size: 1.1rem;
+            gap: 6px;
         }
-        .nav-right span { cursor: pointer; }
 
-        /* WERKEND INTERACTIEF MOBIEL MENU OVERLAY */
+        /* VOLLEDIG INTERACTIEF MENU OVERLAY */
         .mobile-menu-overlay {
             position: fixed;
             top: 0;
-            left: -100%; /* Verbergt menu standaard aan de linkerkant */
+            left: -100%; 
             width: 100%;
             height: 100%;
             background-color: var(--bg-caramel-light);
@@ -109,21 +116,21 @@
         }
 
         .mobile-menu-overlay.is-open {
-            left: 0; /* Schuift menu in beeld */
+            left: 0; 
         }
 
         .menu-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 18px 20px;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .menu-close {
             background: none;
             border: none;
-            font-size: 2rem;
+            font-size: 2.2rem;
             cursor: pointer;
             color: var(--text-dark);
             line-height: 1;
@@ -133,11 +140,11 @@
             position: relative;
             flex: 1;
             overflow-y: auto;
-            padding: 30px 20px;
+            padding: 40px 20px;
         }
 
         .menu-list li {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .menu-link {
@@ -148,20 +155,21 @@
             background: none;
             border: none;
             text-align: left;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--text-dark);
             cursor: pointer;
             font-weight: 400;
             padding: 0;
+            letter-spacing: 0.5px;
         }
 
         .menu-link.has-arrow::after {
             content: "→";
-            font-size: 1.1rem;
-            opacity: 0.6;
+            font-size: 1.2rem;
+            opacity: 0.5;
         }
 
-        /* Submenu panelen (Schuiven over het hoofdmenu heen) */
+        /* Submenu's (Gefilterd op jouw zomer items) */
         .submenu-panel {
             position: absolute;
             top: 0;
@@ -169,7 +177,7 @@
             width: 100%;
             height: 100%;
             background-color: var(--bg-caramel-light);
-            padding: 30px 20px;
+            padding: 40px 20px;
             transition: left 0.25s ease-in-out;
             visibility: hidden;
             z-index: 10;
@@ -184,7 +192,7 @@
             background: none;
             border: none;
             font-size: 1.1rem;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -195,19 +203,19 @@
         }
 
         .submenu-list li {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
         .submenu-list a {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: var(--text-dark);
             display: block;
         }
 
-        /* Donkerrode Promo Balk onderaan het menu */
+        /* Promo Badge onderaan menu */
         .menu-promo-badge {
             background-color: var(--brand-dark);
             color: var(--white);
-            padding: 15px 20px;
+            padding: 16px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -218,69 +226,110 @@
             background: none;
             border: none;
             color: var(--white);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
         }
 
-        /* HERO SECTIE (ZOMER LOOK) */
+        /* HERO SECTIE (PREMIUM SUMMER VIBES) */
         .hero {
             position: relative;
-            /* Zomerse sfeerfoto van een man in linnen kleding */
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.15)), url('https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
-            height: 60vh;
-            min-height: 380px;
+            /* Luxe, high-end resort sfeerfoto */
+            background: linear-gradient(rgba(35, 18, 20, 0.15), rgba(35, 18, 20, 0.2)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            height: 65vh;
+            min-height: 400px;
             display: flex;
             align-items: center;
-            padding: 0 10%;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
         }
 
         .hero-content {
-            max-width: 500px;
+            max-width: 650px;
             color: var(--white);
         }
 
         .hero-content h1 {
             font-family: var(--font-serif);
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             font-weight: 400;
             line-height: 1.15;
             margin-bottom: 25px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            text-shadow: 0 3px 6px rgba(0,0,0,0.15);
         }
 
         .btn-shop {
             display: inline-block;
             background-color: var(--white);
             color: var(--brand-dark);
-            padding: 12px 35px;
+            padding: 14px 40px;
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 600;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        .btn-shop:hover { transform: scale(1.03); }
+        .btn-shop:hover { 
+            transform: scale(1.02); 
+        }
 
-        /* WELCOME BANNER */
-        .promo-banner {
+        /* BRAND MANIFESTO / EXCLUSIVITEITSTEXT */
+        .manifesto {
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
             background-color: var(--bg-caramel-light);
+            max-width: 700px;
+            margin: 0 auto;
         }
-        .promo-banner h2 {
+        .manifesto h2 {
             font-family: var(--font-serif);
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 400;
             color: var(--brand-dark);
-            margin-bottom: 5px;
+            margin-bottom: 15px;
         }
-        .promo-banner p {
-            font-size: 0.95rem;
+        .manifesto p {
+            font-size: 1rem;
             opacity: 0.8;
+            line-height: 1.6;
         }
 
-        /* PRODUCTEN GRID (PUUR ZOMER, GEEN JEANS) */
+        /* LUXE APART BESTELPROCES UITGELEGD */
+        .how-to-order {
+            background-color: rgba(229, 204, 164, 0.3);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(5a, 2c, 32, 0.05);
+            border-bottom: 1px solid rgba(5a, 2c, 32, 0.05);
+        }
+        .order-steps {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            max-width: 900px;
+            margin: 25px auto 0;
+            flex-wrap: wrap;
+        }
+        .step {
+            flex: 1;
+            min-width: 200px;
+            max-width: 280px;
+        }
+        .step-num {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--brand-dark);
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        .step p {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* PRODUCTEN GRID (ALLEEN SHORTS, T-SHIRTS & SCHOENEN) */
         .main-section {
-            padding: 20px 20px 60px;
+            padding: 40px 20px 80px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -288,30 +337,33 @@
         .section-title {
             text-align: center;
             font-family: var(--font-serif);
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 400;
-            margin-bottom: 35px;
+            margin-bottom: 45px;
             color: var(--brand-dark);
+            letter-spacing: 0.5px;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
         .product-card {
-            position: relative;
             background-color: var(--bg-caramel-solid);
-            border-radius: 4px;
+            border-radius: 6px;
             overflow: hidden;
+            box-shadow: 0 4px 20px rgba(35, 18, 20, 0.03);
+            display: flex;
+            flex-direction: column;
         }
 
         .product-image-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 135%; /* Modieuze rechthoekige verhouding */
-            background-color: rgba(0,0,0,0.03);
+            padding-top: 130%; 
+            background-color: rgba(0,0,0,0.02);
         }
 
         .product-image-wrapper img {
@@ -323,126 +375,100 @@
             object-fit: cover;
         }
 
-        .wishlist-icon {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(255, 255, 255, 0.8);
-            border: none;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            cursor: pointer;
-            z-index: 5;
-        }
-
         .product-info {
-            padding: 15px 10px;
+            padding: 20px 15px;
             text-align: center;
-        }
-
-        .color-dots {
+            flex-grow: 1;
             display: flex;
-            justify-content: center;
-            gap: 6px;
-            margin-bottom: 8px;
-        }
-        .dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            border: 1px solid rgba(0,0,0,0.1);
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .product-name {
             font-family: var(--font-serif);
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             color: var(--text-dark);
-            margin-bottom: 5px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            margin-bottom: 6px;
         }
 
         .product-price {
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--brand-dark);
+            margin-bottom: 15px;
         }
 
-        /* NIEUWSBRIEF IN HET BORDEAUX */
+        /* DIRECT APART BESTELLEN VIA CONTACT BUTTON */
+        .btn-order-via-contact {
+            background-color: var(--brand-dark);
+            color: var(--white);
+            border: none;
+            padding: 12px 20px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            transition: opacity 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-order-via-contact:hover {
+            opacity: 0.9;
+        }
+
+        /* BORDEAUX EXCLUSIEVE CALL TO ACTION */
         .newsletter-dark {
             background-color: var(--brand-dark);
             color: var(--white);
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
         }
 
         .newsletter-dark h2 {
             font-family: var(--font-serif);
-            font-size: 2rem;
-            margin-bottom: 8px;
+            font-size: 2.4rem;
+            margin-bottom: 12px;
             font-weight: 400;
         }
 
         .newsletter-dark p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 25px;
-        }
-
-        .form-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 340px;
-            margin: 0 auto;
-            gap: 12px;
-        }
-
-        .newsletter-dark input[type="email"] {
-            width: 100%;
-            padding: 14px 20px;
-            border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.2);
-            background-color: rgba(255,255,255,0.95);
-            color: var(--text-dark);
             font-size: 0.95rem;
-            outline: none;
-            text-align: center;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .btn-subscribe {
+        .contact-box {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 8px;
+            display: inline-block;
+            max-width: 400px;
             width: 100%;
-            padding: 14px 20px;
-            border-radius: 50px;
-            border: none;
-            background-color: var(--bg-caramel-light);
-            color: var(--brand-dark);
+        }
+
+        .contact-number {
+            font-size: 1.5rem;
             font-weight: 600;
-            cursor: pointer;
+            letter-spacing: 1px;
+            color: var(--bg-caramel-light);
+            margin-top: 5px;
+            display: block;
         }
 
-        .privacy-label {
-            margin-top: 15px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.8rem;
-            opacity: 0.7;
-        }
-
-        /* FOOTER */
+        /* PROFESSIONAL FOOTER (ZONDER BANKLOGO'S) */
         footer {
             background-color: var(--brand-dark);
             color: var(--white);
             border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 50px 20px 30px;
+            padding: 60px 20px 40px;
         }
 
         .footer-grid {
@@ -454,23 +480,24 @@
         }
 
         .footer-col h4 {
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-bottom: 20px;
             color: var(--bg-caramel-solid);
             font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
         .footer-col p, .footer-col ul li {
             font-size: 0.85rem;
             opacity: 0.7;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-bottom {
             max-width: 1200px;
-            margin: 40px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            margin: 50px auto 0;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.08);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -478,34 +505,34 @@
             gap: 20px;
         }
 
-        .payment-icons {
-            display: flex;
-            gap: 12px;
-            font-size: 0.75rem;
-            opacity: 0.8;
+        .footer-note {
+            font-size: 0.8rem;
+            opacity: 0.6;
         }
 
-        .social-icons { display: flex; gap: 15px; }
+        .social-icons { display: flex; gap: 20px; font-size: 1.1rem; }
 
-        /* MOBIELE BREAKPOINTS (AUTOMATISCHE BESTE RESPONSIVE LAYOUT) */
+        /* RESPONSIVENESS */
         @media (max-width: 992px) {
-            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 35px; text-align: center; }
             .footer-bottom { flex-direction: column; text-align: center; }
         }
 
         @media (max-width: 576px) {
-            .logo { font-size: 1.6rem; }
-            .hero { height: 45vh; min-height: 320px; text-align: center; justify-content: center; }
-            .hero-content h1 { font-size: 2rem; }
-            .section-title { font-size: 1.5rem; }
-            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 5px; }
-            .product-name, .product-price { font-size: 0.85rem; }
+            .logo { font-size: 1.8rem; }
+            .hero { height: 50vh; min-height: 350px; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .manifesto h2 { font-size: 1.7rem; }
+            .section-title { font-size: 1.6rem; }
+            .products-grid { grid-template-columns: repeat(1, 1fr); gap: 25px; padding: 0 10px; }
+            .order-steps { flex-direction: column; gap: 20px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVIGATIE BALK -->
     <header>
         <nav>
             <button class="menu-toggle" id="menuOpenBtn">
@@ -514,203 +541,210 @@
                 <span></span>
             </button>
             <div class="logo">Amezia</div>
-            <div class="nav-right">
-                <span>🔍</span>
-                <span>🛒 (0)</span>
-            </div>
+            <!-- Professioneel Direct Bestellen via WhatsApp / Bellen -->
+            <a href="tel:+31612345678" class="nav-order-btn">
+                <span>📞 Order Service</span>
+            </a>
         </nav>
     </header>
 
+    <!-- HET NIEUWE INTERACTIEVE MOBIELE MENU -->
     <div class="mobile-menu-overlay" id="mobileMenu">
         <div class="menu-header">
             <button class="menu-close" id="menuCloseBtn">&times;</button>
             <div class="logo">Amezia</div>
-            <div class="nav-right">
-                <span>🔍</span>
-                <span>🛒 (0)</span>
-            </div>
+            <a href="tel:+31612345678" class="nav-order-btn">
+                <span>📞 Order</span>
+            </a>
         </div>
 
         <div class="menu-content">
+            <!-- Hoofdlijst -->
             <ul class="menu-list" id="mainMenuList">
-                <li><a href="#new-arrivals" class="menu-link">New Arrivals</a></li>
+                <li><a href="#new-arrivals" class="menu-link">Summer New Arrivals</a></li>
                 <li><button class="menu-link has-arrow" data-target="submenu-menswear">Menswear</button></li>
                 <li><button class="menu-link has-arrow" data-target="submenu-footwear">Footwear</button></li>
-                <li><button class="menu-link has-arrow" data-target="submenu-accessories">Accessories</button></li>
                 <li><button class="menu-link has-arrow" data-target="submenu-about">About</button></li>
             </ul>
 
+            <!-- Submenu: Menswear (Alleen Shirts & Shorts) -->
             <div class="submenu-panel" id="submenu-menswear">
                 <button class="back-btn">&larr; Menswear</button>
                 <ul class="submenu-list">
-                    <li><a href="#linen">Linen</a></li>
                     <li><a href="#t-shirts-polos">T-Shirts & Polos</a></li>
-                    <li><a href="#trousers">Trousers</a></li>
-                    <li><a href="#swimwear">Swimwear</a></li>
-                    <li><a href="#lounge-collection">Lounge Collection</a></li>
+                    <li><a href="#shorts">Luxury Shorts</a></li>
+                    <li><a href="#linen-collection">Linen Collection</a></li>
                 </ul>
             </div>
 
+            <!-- Submenu: Footwear (Alleen Schoenen) -->
             <div class="submenu-panel" id="submenu-footwear">
                 <button class="back-btn">&larr; Footwear</button>
                 <ul class="submenu-list">
-                    <li><a href="#soft-tide">Soft tide loafers</a></li>
+                    <li><a href="#soft-tide">Soft Tide Loafers</a></li>
                     <li><a href="#velour-slipon">Velour Slip-on</a></li>
                 </ul>
             </div>
 
-            <div class="submenu-panel" id="submenu-accessories">
-                <button class="back-btn">&larr; Accessories</button>
-                <ul class="submenu-list">
-                    <li><a href="#headwear">Headwear</a></li>
-                    <li><a href="#leather-acc">Leather Accessories</a></li>
-                </ul>
-            </div>
-
+            <!-- Submenu: About -->
             <div class="submenu-panel" id="submenu-about">
                 <button class="back-btn">&larr; About</button>
                 <ul class="submenu-list">
                     <li><a href="#world">The World of Amezia</a></li>
-                    <li><a href="#stores">Flagship Store</a></li>
-                    <li><a href="#artists">Artists</a></li>
+                    <li><a href="#order-info">How Our VIP Ordering Works</a></li>
                 </ul>
             </div>
         </div>
 
+        <!-- Promo Banner onderin menu -->
         <div class="menu-promo-badge" id="promoBadge">
-            <span>First time? Here's 10% off</span>
+            <span>Exclusive Summer Collection 2026</span>
             <button id="closePromoBtn">&times;</button>
         </div>
     </div>
 
+    <!-- MAIN SFEER BANNER (PURE SUMMER VIBES) -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Discover the<br>latest arrivals</h1>
-            <a href="#shop" class="btn-shop">Shop now</a>
+            <h1>High-End Summer Essentials</h1>
+            <a href="#collection" class="btn-shop">Explore Collection</a>
         </div>
     </section>
 
-    <section class="promo-banner">
-        <h2>10% Welcome Gift</h2>
-        <p>Subscribe and enjoy 10% off your first purchase.</p>
+    <!-- MANIFESTO TEXT -->
+    <section class="manifesto">
+        <h2>The Art of Summer Living</h2>
+        <p>Amezia brengt een exclusieve selectie van premium linnen shirts, luxe shorts en handgemaakte zomerschoenen. Gemaakt van de allerbeste Europese stoffen voor optimaal comfort tijdens warme zomerdagen.</p>
     </section>
 
-    <main class="main-section" id="shop">
-        <h3 class="section-title">Latest Arrivals</h3>
+    <!-- HOE HET BESTELLEN WERKT (GEEN BANK MEER) -->
+    <section class="how-to-order" id="order-info">
+        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--brand-dark);">Exclusieve Bestelservice</h3>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 4px;">Geen gedoe met winkelwagens. Bestel direct en persoonlijk.</p>
+        
+        <div class="order-steps">
+            <div class="step">
+                <div class="step-num">01</div>
+                <p>Kies je favoriete T-shirt, shorts of schoenen uit onze collectie.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">02</div>
+                <p>Klik op de bestelknop om direct contact op te nemen via WhatsApp of telefoon.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">03</div>
+                <p>Wij regelen je bestelling persoonlijk en zorgen voor een snelle, premium levering.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXCLUSIEVE PRODUCTEN (SHORTS, SHIRTS, SCHOENEN) -->
+    <main class="main-section" id="collection">
+        <h3 class="section-title">Summer Drop '26</h3>
         
         <div class="products-grid">
             
+            <!-- Product 1: T-Shirt -->
             <div class="product-card">
-                <button class="wishlist-icon">♡</button>
                 <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=500&auto=format&fit=crop" alt="Polo Olive">
+                    <!-- Je kunt deze placeholders later vervangen door je eigen foto's -->
+                    <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=500&auto=format&fit=crop" alt="Courtside Zip Polo">
                 </div>
                 <div class="product-info">
-                    <div class="color-dots">
-                        <span class="dot" style="background-color: #556b2f;"></span>
-                        <span class="dot" style="background-color: #d7cdbe;"></span>
+                    <div>
+                        <div class="product-name">Courtside Zip Polo Shirt Olive Green</div>
+                        <div class="product-price">€189,00</div>
                     </div>
-                    <div class="product-name">Courtside Zip Polo Shirt Olive Green</div>
-                    <div class="product-price">€189,00</div>
+                    <!-- Direct Bestel Knop gekoppeld aan Contact -->
+                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Courtside%20Zip%20Polo%20Olive" class="btn-order-via-contact">
+                        Order via WhatsApp
+                    </a>
                 </div>
             </div>
 
+            <!-- Product 2: Shorts -->
             <div class="product-card">
-                <button class="wishlist-icon">♡</button>
                 <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1625910513397-a400c77f6aa4?q=80&w=500&auto=format&fit=crop" alt="Polo Black">
+                    <img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=500&auto=format&fit=crop" alt="Luxury Shorts">
                 </div>
                 <div class="product-info">
-                    <div class="color-dots">
-                        <span class="dot" style="background-color: #111111;"></span>
+                    <div>
+                        <div class="product-name">Tailored Summer Shorts Sand Beige</div>
+                        <div class="product-price">€145,00</div>
                     </div>
-                    <div class="product-name">Seamless Polo Shirt Midnight Black</div>
-                    <div class="product-price">€195,00</div>
+                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Tailored%20Summer%20Shorts%20Sand" class="btn-order-via-contact">
+                        Order via WhatsApp
+                    </a>
                 </div>
             </div>
 
+            <!-- Product 3: Schoenen -->
             <div class="product-card">
-                <button class="wishlist-icon">♡</button>
                 <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=500&auto=format&fit=crop" alt="Linen Shirt">
+                    <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?q=80&w=500&auto=format&fit=crop" alt="Soft Tide Loafers">
                 </div>
                 <div class="product-info">
-                    <div class="color-dots">
-                        <span class="dot" style="background-color: #9cbca4;"></span>
-                        <span class="dot" style="background-color: #eae6df;"></span>
+                    <div>
+                        <div class="product-name">Soft Tide Loafers Caramel Suede</div>
+                        <div class="product-price">€249,00</div>
                     </div>
-                    <div class="product-name">Linen Shirt Pure Mint</div>
-                    <div class="product-price">€225,00</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <button class="wishlist-icon">♡</button>
-                <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=500&auto=format&fit=crop" alt="Linen Trousers">
-                </div>
-                <div class="product-info">
-                    <div class="color-dots">
-                        <span class="dot" style="background-color: #f5f5f0;"></span>
-                    </div>
-                    <div class="product-name">Lightweight Linen Trousers Moonlight White</div>
-                    <div class="product-price">€279,00</div>
+                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Soft%20Tide%20Loafers" class="btn-order-via-contact">
+                        Order via WhatsApp
+                    </a>
                 </div>
             </div>
 
         </div>
     </main>
 
+    <!-- CONTACT SERVICE SECTIE (BORDEAUX) -->
     <section class="newsletter-dark">
-        <h2>Enjoy 10% off your first order</h2>
-        <p>New collections, early access and exclusive offers.</p>
+        <h2>Direct Personal Service</h2>
+        <p>Vragen over maten of wil je direct een bestelling plaatsen? Onze service lijn staat elke dag voor je klaar via WhatsApp en telefoon.</p>
         
-        <div class="form-container">
-            <input type="email" placeholder="Email">
-            <button class="btn-subscribe">Subscribe</button>
+        <div class="contact-box">
+            <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7;">Bel of App ons direct</p>
+            <!-- Vervang dit nummer door jouw eigen nummer -->
+            <a href="tel:+31612345678" class="contact-number">+31 (0)6 1234 5678</a>
         </div>
-        
-        <label class="privacy-label">
-            <input type="checkbox"> I accept the <a href="#" style="text-decoration: underline;">privacy policy</a>
-        </label>
     </section>
 
+    <!-- FOOTER ZONDER BANK LOGO'S -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>Get in Touch</h4>
-                <p>Customer Services</p>
-                <p>+31 (0)20 123 4567</p>
+                <h4>Private Boutique</h4>
+                <p>Onze collectie is exclusief verkrijgbaar via onze directe order service. Geen massaproductie, puur vakmanschap.</p>
             </div>
             <div class="footer-col">
-                <h4>Services</h4>
+                <h4>Contact & Service</h4>
                 <ul>
-                    <li><a href="#">Customer Service</a></li>
-                    <li><a href="#">Shipping & delivery</a></li>
-                    <li><a href="#">Returns</a></li>
+                    <li><a href="tel:+31612345678">Call Service</a></li>
+                    <li><a href="https://wa.me/31612345678">WhatsApp Support</a></li>
+                    <li><a href="#">Shipping Info</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>About Amezia</h4>
+                <h4>About</h4>
                 <ul>
-                    <li><a href="#">The World of Amezia</a></li>
-                    <li><a href="#">Flagship Store</a></li>
-                    <li><a href="#">Campaigns</a></li>
+                    <li><a href="#world">The World of Amezia</a></li>
+                    <li><a href="#order-info">Order Procedure</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <div class="payment-icons">
-                <span>AMEX</span> | <span>Apple Pay</span> | <span>Shop Pay</span> | <span>Klarna</span> | <span>PayPal</span> | <span>VISA</span>
+            <div class="footer-note">
+                &copy; 2026 Amezia Luxury. All rights reserved.
             </div>
             <div class="social-icons">
-                <span>📸</span>
-                <span>🎵</span>
+                <span>📸 Instagram</span>
+                <span>🎵 TikTok</span>
             </div>
         </div>
     </footer>
 
+    <!-- INTERACTIEF SCRIPT VOOR MENUNAVIGATIE -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const menu = document.getElementById("mobileMenu");
@@ -723,18 +757,18 @@
             const backButtons = document.querySelectorAll(".back-btn");
             const allSubmenus = document.querySelectorAll(".submenu-panel");
 
-            // Open Hoofdmenu
+            // Open Menu
             openBtn.addEventListener("click", function () {
                 menu.classList.add("is-open");
             });
 
-            // Sluit het Menu compleet
+            // Sluit Menu compleet
             closeBtn.addEventListener("click", function () {
                 menu.classList.remove("is-open");
                 allSubmenus.forEach(panel => panel.classList.remove("is-active"));
             });
 
-            // Naar Submenu navigeren
+            // Naar Submenu
             arrowButtons.forEach(button => {
                 button.addEventListener("click", function () {
                     const targetId = this.getAttribute("data-target");
@@ -745,14 +779,14 @@
                 });
             });
 
-            // Terugknop binnen submenu
+            // Terugknop
             backButtons.forEach(button => {
                 button.addEventListener("click", function () {
                     this.parentElement.classList.remove("is-active");
                 });
             });
 
-            // Sluit de 10% promo badge onderin
+            // Sluit promo badge onderin
             closePromoBtn.addEventListener("click", function () {
                 promoBadge.style.display = "none";
             });
